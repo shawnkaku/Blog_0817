@@ -48,13 +48,17 @@ test:
   encoding: unicode
   database: blog_0817_test
   pool: 5
-  username: blog_0817
-  password:
+  username: shawn
+  password: abcdef
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgresql
   encoding: unicode
   database: blog_0817_production
   pool: 5
-  username: blog_0817
-  password:
+  username: shawn
+  password: abcdef
+  host: localhost
+  port: 5432

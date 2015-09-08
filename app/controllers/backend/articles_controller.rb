@@ -4,7 +4,7 @@ class Backend::ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @backend_articles = Article.all
+    @backend_articles = Backend::Article.all
   end
 
   # GET /articles/1
@@ -14,7 +14,7 @@ class Backend::ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @backend_article = Article.new
+    @backend_article = Backend::Article.new
   end
 
   # GET /articles/1/edit
@@ -24,7 +24,7 @@ class Backend::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @backend_article = Article.new(article_params)
+    @backend_article = Backend::Article.new(article_params)
 
     respond_to do |format|
       if @backend_article.save
@@ -64,7 +64,7 @@ class Backend::ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_backend_article
-      @backend_article = Article.find(params[:id])
+      @backend_article = Backend::Article.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
