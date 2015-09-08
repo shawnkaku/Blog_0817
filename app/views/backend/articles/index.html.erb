@@ -1,0 +1,29 @@
+<h1>Listing articles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backend_articles.each do |backend_article| %>
+      <tr>
+        <td><%= backend_article.title %></td>
+        <td><%= backend_article.content %></td>
+        <td><%= link_to 'Show', backend_article_path(backend_article) %></td>
+        <td><%= link_to 'Edit', edit_backend_article_path(backend_article) %></td>
+        <td><%= link_to 'Destroy', backend_article_path(backend_article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Article', new_backend_article_path %>

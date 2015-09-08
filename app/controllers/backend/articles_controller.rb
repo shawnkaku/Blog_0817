@@ -1,10 +1,10 @@
 class Backend::ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_backend_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @backend_articles = Article.all
   end
 
   # GET /articles/1
@@ -14,7 +14,7 @@ class Backend::ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @backend_article = Article.new
   end
 
   # GET /articles/1/edit
@@ -24,15 +24,15 @@ class Backend::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @backend_article = Article.new(article_params)
 
     respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @article }
+      if @backend_article.save
+        format.html { redirect_to @backend_article, notice: 'Article was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @backend_article }
       else
         format.html { render action: 'new' }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @backend_article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class Backend::ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+      if @backend_article.update(article_params)
+        format.html { redirect_to @backend_article, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @backend_article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,21 +54,21 @@ class Backend::ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    @backend_article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url }
+      format.html { redirect_to backend_articles_url }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
+    def set_backend_article
+      @backend_article = Article.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content)
+      params.require(:backend_article).permit(:title, :content)
     end
 end
