@@ -1,5 +1,6 @@
 Blog0817::Application.routes.draw do
   
+  devise_for :users
   namespace :backend do
     resources :articles
   end
