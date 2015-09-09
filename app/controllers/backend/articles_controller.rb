@@ -1,5 +1,6 @@
 class Backend::ArticlesController < ApplicationController
   before_action :set_backend_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /articles
   # GET /articles.json
